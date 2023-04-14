@@ -1,15 +1,16 @@
-package jacoble.calculatorApp;
+package jacoble.CalculatorApp;
 
-import CalcGUI.java;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import CalcGUI.java;
+
 @SpringBootApplication
-public class CalculatorAppApplication {
+public class CalculatorApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CalculatorAppApplication.class, args);
-		CalcGUI();
+		SpringApplication.run(CalculatorApp.class, args);
+		CalcGUI calc = new CalcGUI();
 	}
 
 }

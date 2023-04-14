@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-
-
 public class CalcGUI extends JFrame implements ActionListener {
 
     private String currOperator = "";
