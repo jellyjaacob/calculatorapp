@@ -2,27 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class numberButton extends JButton {
-    public int number;     // holds the number
-    // Getter + Setter methods
-    public numberButton(int number) {
-        super(String.valueOf(number));      // gets the string number as a value
-        this.number = number;               // set the number
-    }
-    @Override
-    public int getNumber() { return number; }
-}
 
-public class operatorButton extends JButton {
-    public String operator;    // holds the appropriate operator
-    public operatorButton(String operator) {
-        super(operator);
-        this.operator = operator;
-    }
-    
-    @Override
-    public String getOperator() { return operator; }
-}
 
 public class CalcGUI extends JFrame implements ActionListener {
 
@@ -77,7 +57,7 @@ public class CalcGUI extends JFrame implements ActionListener {
             String operator = button.getOperator();
 
             // store the curr value + update display
-            if (currValue == null) {
+            if (Double.isNaN(currValue)) {
                 currValue = Double.parseDouble(displayLabel.getText());
                 displayLabel.setText("");
             } else {
@@ -101,7 +81,7 @@ public class CalcGUI extends JFrame implements ActionListener {
         }
     }
 
-    protected static double mathOperations (int a, int b, String operator) {
+    protected static double mathOperations (double a, double b, String operator) {
         double answer = 0;
         switch(operator) {
             case "+":
@@ -120,5 +100,24 @@ public class CalcGUI extends JFrame implements ActionListener {
                 break;
         }
         return answer;
+    }
+
+    public class numberButton extends JButton {
+        public int number;     // holds the number
+        // Getter + Setter methods
+        public numberButton(int number) {
+            super(String.valueOf(number));      // gets the string number as a value
+            this.number = number;               // set the number
+        }
+        public int getNumber() { return number; }
+    }
+    
+    public class operatorButton extends JButton {
+        public String operator;    // holds the appropriate operator
+        public operatorButton(String operator) {
+            super(operator);
+            this.operator = operator;
+        }
+        public String getOperator() { return operator; }
     }
 }
